@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let inicio=["unacadena",3,9,1,10,500,1,10,true];
+        let ordenador = (arreglo) => {
+            let modifica = false;
+            let menor;
+            let mayor;
+            for(let idx = 0; idx < arreglo.length -1 || modifica; idx++){
+                if(idx == 0)
+                    modifica = false;
+                if(typeof(arreglo[idx]) !== "number")
+                    arreglo.splice(idx,1);
+                if(arreglo[idx + 1] > arreglo[idx]){
+                    mayor = arreglo[idx + 1];
+                    menor = arreglo[idx];
+                    arreglo[idx] = mayor;
+                    arreglo[idx + 1] = menor;
+                    modifica = true;
+                }
+                if(idx >= arreglo.length - 1 && modifica)
+                    idx = -1;
+            }
+            return arreglo;
+        }
+        console.log(ordenador(inicio));
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
